@@ -231,7 +231,7 @@ class Servers extends Model
      * @throws \LKDev\HetznerCloud\APIException
      */
     public function createInLocation(string $name,
-                                     ServerType $serverType,
+                                     int $serverType,
                                      Image $image,
                                      ?Location $location = null,
                                      array $ssh_keys = [],
@@ -246,7 +246,7 @@ class Servers extends Model
     ): ?APIResponse {
         $parameters = [
             'name' => $name,
-            'server_type' => $serverType->id,
+            'server_type' => $serverType,
             'location' => $location == null ? null : $location->id,
             'image' => $image->id,
             'start_after_create' => $startAfterCreate,
