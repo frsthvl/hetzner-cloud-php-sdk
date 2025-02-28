@@ -235,11 +235,12 @@ class Servers extends Model
                                      Image $image,
                                      ?Location $location = null,
                                      array $ssh_keys = [],
+                                     array $networks = [],
+                                     bool $publicIp = false,
                                      bool $startAfterCreate = true,
                                      string $user_data = '',
                                      array $volumes = [],
                                      bool $automount = false,
-                                     array $networks = [],
                                      array $labels = [],
                                      array $firewalls = []
     ): ?APIResponse {
@@ -254,6 +255,10 @@ class Servers extends Model
             'volumes' => $volumes,
             'automount' => $automount,
             'networks' => $networks,
+            'public_net' => [
+                'enable_ipv4' => $publicIp,
+                'enable_ipv6' => $publicIp
+            ]
         ];
         if (! empty($labels)) {
             $parameters['labels'] = $labels;
