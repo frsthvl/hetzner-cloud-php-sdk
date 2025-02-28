@@ -232,7 +232,7 @@ class Servers extends Model
      */
     public function createInLocation(string $name,
                                      int $serverType,
-                                     Image $image,
+                                     string $image,
                                      ?Location $location = null,
                                      array $ssh_keys = [],
                                      array $networks = [],
@@ -248,7 +248,7 @@ class Servers extends Model
             'name' => $name,
             'server_type' => $serverType,
             'location' => $location == null ? null : $location->id,
-            'image' => $image->id,
+            'image' => $image,
             'start_after_create' => $startAfterCreate,
             'user_data' => $user_data,
             'ssh_keys' => $ssh_keys,
