@@ -237,11 +237,11 @@ class Servers extends Model
                                      array $ssh_keys = [],
                                      array $networks = [],
                                      bool $publicIp = false,
+                                     array $labels = [],
                                      bool $startAfterCreate = true,
                                      string $user_data = '',
                                      array $volumes = [],
                                      bool $automount = false,
-                                     array $labels = [],
                                      array $firewalls = []
     ): ?APIResponse {
         $parameters = [
